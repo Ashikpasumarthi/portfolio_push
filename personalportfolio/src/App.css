@@ -1,0 +1,322 @@
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.page-content {
+  width: 100vw !important;
+  /* Start with no width */
+  height: 100vh !important;
+  /* Start with no height */
+  background-color: white;
+  border-left: 4px solid #333;
+  /* Visible vertical line */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: expandVertically 1s ease-out forwards, expandHorizontally 1s ease-out 1s forwards;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+@keyframes expandVertically {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+
+  100% {
+    height: 100vh;
+    opacity: 1;
+  }
+}
+
+@keyframes expandHorizontally {
+  0% {
+    width: 0;
+    border-left: 4px solid #333;
+    /* Maintain the visible vertical line */
+  }
+
+  100% {
+    width: 100vw;
+    border-left: none;
+    /* Remove the line after expansion */
+  }
+}
+
+/* h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: #333;
+  opacity: 0;
+  animation: fadeInText 2s ease-out 1.5s forwards;} */
+/* Delayed fade-in for text */
+
+/* p {
+  font-size: 1.5rem;
+  color: #666;
+  margin-top: 10px;
+  opacity: 0;
+  animation: fadeInText 2s ease-out 1.5s forwards;} */
+/* Delayed fade-in for text */
+
+
+/* @keyframes fadeInText {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+} */
+
+.App {
+  /* background-color: black; */
+  background: url('./Images/Rectangle.png');
+  width: 100vw !important;
+  height: 85vh !important;
+  margin-top: -17rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-Header {
+  font-size: 3rem;
+  margin: 0;
+  color: greenyellow;
+  font-weight: 700;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* opacity: 0;
+  animation: fadeInText 2s ease-out 1.5s forwards; Delayed fade-in for text */
+}
+
+.navbar {
+  color: white;
+  flex-direction: row;
+  display: flex;
+  column-gap: 4rem;
+  justify-content: center;
+  align-items: center;
+  border: 0.1rem solid rgba(113, 104, 104);
+  border-radius: 2.5rem;
+  list-style-type: none;
+  text-Decoration: none;
+  position: fixed;
+  top: 1rem;
+  padding: 1rem;
+  background: rgba(113, 104, 104, 0.22);
+  width: 53%;
+  font-size: 1rem;
+}
+
+.heroBox {
+  position: absolute;
+  left: 12rem;
+  top: 22rem;
+}
+
+.intro {
+  font-family: Inder;
+  color: white;
+  letter-spacing: 0.28rem;
+  font-size: 3rem;
+}
+
+.professional_intro {
+  font-family: Inder;
+  color: white;
+  position: relative;
+  top: 1rem;
+  left: 1.5rem;
+  letter-spacing: 0.28rem;
+  font-size: 3rem;
+}
+
+.feedback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.1rem solid white;
+  border-radius: 3rem;
+  width: 7rem;
+  height: 2.5rem;
+  background: linear-gradient(45deg, #30b130, yellow);
+  position: fixed;
+  bottom: 3rem;
+  right: 4rem;
+  cursor: pointer;
+}
+
+.modalPopUp {
+  display: block;
+  pointer-events: initial;
+  opacity: 1;
+  position: absolute;
+  top: 20rem !important;
+  left: 27rem !important;
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem !important;
+  width: 65rem !important;
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: row;
+  gap: 59rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+
+}
+
+.form>.label>input {
+  width: 22rem;
+  height: 2rem;
+}
+
+.form>.label {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+}
+
+.css-1pbi1ih-MuiButtonBase-root-MuiIconButton-root {
+  background: black !important;
+  color: white !important;
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  margin-top: 0.5rem !important;
+}
+
+.css-rsks93-MuiPaper-root-MuiDialog-paper {
+  border-radius: 1rem !important;
+}
+
+.css-1apkmlw-MuiButtonBase-root-MuiButton-root {
+  border: 0.1rem solid white !important;
+  background: black !important;
+  border-radius: 3rem !important;
+  color: white !important;
+  font-weight: bolder !important;
+}
+
+.css-1apkmlw-MuiButtonBase-root-MuiButton-root:hover {
+  border: 0.1rem solid black !important;
+  background: white !important;
+  border-radius: 3rem !important;
+  color: black !important;
+  font-weight: bolder !important;
+}
+
+.css-19kok5i-MuiDialogActions-root {
+  background: linear-gradient(45deg, yellow, orange) !important;
+}
+
+/* :root {
+  --animation-duration: 2s;
+  --text-length: 20;
+} */
+
+.wrapper {
+  /* display: grid;
+  height: 100vh;
+  place-items: center */
+}
+
+
+
+
+/* .heroBox .intro::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  height: 50%;
+  width: 100%;
+  border-left: 2px solid white;
+  animation: typing 3s steps(21) infinite;
+  background-color: black;
+}
+
+@keyframes typing{
+  100%{
+    left: 100%;
+    margin: 0 15px 0 -65px;
+  }
+} */
+/* :root{
+  width: 100%;
+  height: 100%;
+} */
