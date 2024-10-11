@@ -26,7 +26,7 @@ const db = mysql.createPool({
     connectionLimit: 10,
     queueLimit: 0
 }).promise();   // rather than using callback hells , by giving promise we are diving into async await implementation.
-
+//working on the git basics 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
