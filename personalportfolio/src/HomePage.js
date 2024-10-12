@@ -1,10 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {Link,Routes,Route} from "react-router-dom";
+import { Link } from "react-router-dom";
 // import Button from '@mui/material/Button';
 import CustomizedDialogs from './FeedBack';
-import Feedback_Grid from "./FeedBack_Grid"
+// import FeedbackPage from "./FeedBack_Grid"
 // import {
 //     MDBBtn} from 'mdb-react-ui-kit';
 // import { Typed } from 'react-typed';
@@ -30,7 +30,7 @@ export default function HomePage() {
 
                 console.log('Response received:', result);
                 if (result) {
-                    if (result) { 
+                    if (result) {
                         console.log("Data received successfully:", result.data);
                         setNavbarData(result.data);
                     }
@@ -73,16 +73,13 @@ export default function HomePage() {
 
                 <ul className="navbar">
                     { (!errorMessage && Array.isArray(navbarData)) && navbarData.map((item) => (
-                        <li key={ item.id }><Link to={`/${item.id}`}>{item.Navbar}</Link></li>
+                        <li key={ item.id }><Link to={ `/${item.id}` }>{ item.Navbar }</Link></li>
                     )) }
                     {
                         errorMessage && <Error errorMessage={ errorMessage } />
                     }
                 </ul>
-                <Routes>
-          <Route path="/7" element={<Feedback_Grid />} />
-          
-        </Routes>
+
                 <div className='heroBox'>
                     <h1 className="intro ">👋 Hey, I'm Ashik</h1>
                     <h1 className="professional_intro">Full Stack Developer</h1>
@@ -113,6 +110,8 @@ export default function HomePage() {
                     <CustomizedDialogs handleClose={ handleClose } open={ open } />
                 </>
             }
+
+            
         </>
     );
 }
