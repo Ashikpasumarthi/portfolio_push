@@ -45,6 +45,19 @@ app.get('/api', async (req, res) => {
     }
 });
 
+app.get('/feedback', async (req, res) => {
+  const selectQuery = 'SELECT * FROM feedback';
+  try {
+      const [results] = await db.execute(selectQuery);  // Use execute instead of query
+      console.log(results);  // Log the results to check the structure
+      res.setHeader('Content-Type', 'text/plain');  // Set content type to plain text
+      res.json(results);     // Send the results as JSON
+  } catch (error) {
+      console.log("SQL Error: " + error.message);
+      res.status(500).send('Internal Server Error');
+  }
+});
+
 app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
 
