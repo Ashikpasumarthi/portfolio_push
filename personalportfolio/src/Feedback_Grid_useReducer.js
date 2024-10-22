@@ -8,7 +8,7 @@ const initialState = {
 function reducer(state, action) {
     switch (action.type) {
         case "SET_USERS_DATA":
-            return { ...state, usersData: action.payload }; // Return a new state object
+            return { ...state, usersData: action.payload }; // Return a new state objects
         default:
             return state; // Always return state for unmatched action types
     }
