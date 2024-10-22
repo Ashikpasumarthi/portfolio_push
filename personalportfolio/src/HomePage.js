@@ -1,9 +1,10 @@
 
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import  { useState } from 'react';
+// import axios from 'axios';
 import { Link } from "react-router-dom";
 // import Button from '@mui/material/Button';
 import CustomizedDialogs from './FeedBack';
+import { useNavbar } from './useNavbar';
 // import FeedbackPage from "./FeedBack_Grid"
 // import {
 //     MDBBtn} from 'mdb-react-ui-kit';
@@ -11,10 +12,11 @@ import CustomizedDialogs from './FeedBack';
 // import { error } from 'console';
 
 export default function HomePage() {
-    const [navbarData, setNavbarData] = useState([]);
-    const [errorMessage, setErrorMessage] = useState("");
-    const [open, setOpen] = React.useState(false);
+    // const [navbarData, setNavbarData] = useState([]);
+    // const [errorMessage, setErrorMessage] = useState("");
+    const [open, setOpen] = useState(false);
 
+    let { navbarData, errorMessage } = useNavbar()
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -22,26 +24,26 @@ export default function HomePage() {
         setOpen(false);
     };
 
-    useEffect(() => {
-        const fetchNavbarData = async () => {
-            try {
-                console.log('Making API request...');
-                const result = await axios.get('http://localhost:3001/api');
+    // useEffect(() => {
+    //     const fetchNavbarData = async () => {
+    //         try {
+    //             console.log('Making API request...');
+    //             const result = await axios.get('http://localhost:3001/api');
 
-                console.log('Response received:', result);
-                if (result) {
-                    if (result) {
-                        console.log("Data received successfully:", result.data);
-                        setNavbarData(result.data);
-                    }
-                }
-            } catch (error) {
-                console.error("Error fetching data:", error);
-                setErrorMessage(error.message);
-            }
-        };
-        fetchNavbarData();
-    }, []);
+    //             console.log('Response received:', result);
+    //             if (result) {
+    //                 if (result) {
+    //                     console.log("Data received successfully:", result.data);
+    //                     setNavbarData(result.data);
+    //                 }
+    //             }
+    //         } catch (error) {
+    //             console.error("Error fetching data:", error);
+    //             setErrorMessage(error.message);
+    //         }
+    //     };
+    //     fetchNavbarData();
+    // }, []);
 
     // function popUp(){
     //     console.log("hey you have clicked the button")
@@ -111,15 +113,17 @@ export default function HomePage() {
                 </>
             }
 
-            
+
         </>
     );
 }
 
-function Error({ errorMessage }) {
+export function Error({ errorMessage }) {
     return (
         <div>
             <h1>{ errorMessage }</h1>
         </div>
     )
 }
+
+

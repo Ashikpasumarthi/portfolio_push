@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 // import { Grid, GridColumn as Column } from "@progress/kendo-react-grid";
 import axios from 'axios';
 import MUIDataTable from "mui-datatables";
-
+import NavbarComponent from "./Navbar";
 
 const FeedbackPage = () => {
     const [usersData, setUsersData] = useState([]);
@@ -17,7 +17,7 @@ const FeedbackPage = () => {
         rowsPerPageOptions: [5, 10, 20],
     }
 
-  
+
     useEffect(() => {
         const fetchFeedbackData = async () => {
             try {
@@ -40,14 +40,19 @@ const FeedbackPage = () => {
     }, []);
     return (
         <>
-            <MUIDataTable
-                title={ "Employee List" }
-                data={ usersData }
-                columns={ columns }
-                options={ options }
-            />
+            <div>
+                <NavbarComponent />
+            </div>
+            <div>
+                <MUIDataTable
+                    title={ "Employee List" }
+                    data={ usersData }
+                    columns={ columns }
+                    options={ options }
+                />
 
 
+            </div>
         </>
     )
 };

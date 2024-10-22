@@ -65,6 +65,7 @@
 // // render(<App />);
 
 import * as React from 'react';
+import { useRef , useEffect} from 'react';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
@@ -90,6 +91,7 @@ export default function CustomizedDialogs({ handleClose, open }) {
   const [firstName, setFirstName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
   const [feedback, setFeedback] = React.useState("");
+  const refData = useRef(null);
 
   async function sendData(newItems) {
     try {
@@ -100,6 +102,7 @@ export default function CustomizedDialogs({ handleClose, open }) {
     }
   }
 
+  
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -119,7 +122,11 @@ export default function CustomizedDialogs({ handleClose, open }) {
     handleClose();
   }
 
-
+  useEffect(()=>{
+    if (refData.current) { // Check if refData is not null
+      refData.current.focus();
+    }
+  },[])
   return (
     <React.Fragment>
 
@@ -151,7 +158,7 @@ export default function CustomizedDialogs({ handleClose, open }) {
             <form className="form">
               <div className="label">
                 <label>First Name</label>
-                <input value={ firstName } onChange={ (e) => setFirstName(e.target.value) } />
+                <input value={ firstName } type="text" ref={refData} placeholder='Enter your name' onChange={ (e) => setFirstName(e.target.value) } />
               </div>
               <div className="label">
                 <label>Last Name</label>
